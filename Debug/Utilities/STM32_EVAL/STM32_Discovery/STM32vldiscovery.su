@@ -1,0 +1,6 @@
+STM32vldiscovery.c:93:6:STM32vldiscovery_LEDInit	24	static
+STM32vldiscovery.c:116:6:STM32vldiscovery_LEDOn	16	static
+STM32vldiscovery.c:129:6:STM32vldiscovery_LEDOff	16	static
+STM32vldiscovery.c:142:6:STM32vldiscovery_LEDToggle	16	static
+STM32vldiscovery.c:159:6:STM32vldiscovery_PBInit	32	static
+STM32vldiscovery.c:204:10:STM32vldiscovery_PBGetState	16	static

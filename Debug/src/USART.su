@@ -1,0 +1,5 @@
+USART.c:10:6:usart_init	40	static
+USART.c:61:9:Usart_Get	16	static
+USART.c:67:6:Usart_PutChar	16	static
+USART.c:74:6:Usart_PutString	16	static
+USART.c:84:6:Usart_PutNumber	32	static
