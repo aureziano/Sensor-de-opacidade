@@ -49,13 +49,13 @@ int main()
 	//O clock do sistema roda a 72Mhz, logo:
 	//72000000 / 720000 = 1000 ciclos/seg
 	TimerInitStructure.TIM_Prescaler = SystemCoreClock/100 -1;
-	TimerInitStructure.TIM_Period = 4000-1;//Contamos atÈ 1000 (0..999), assim temos 1000 contagens por segundo. Com isso teremos um overflow por segundo.
-	TimerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;//contador conta de 0 atÈ 999, de forma crescente
-	TimerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;//N„o queremos nenhum divisor de clock, o calculo È com os 72Mhz.
+	TimerInitStructure.TIM_Period = 4000-1;//Contamos at√© 1000 (0..999), assim temos 1000 contagens por segundo. Com isso teremos um overflow por segundo.
+	TimerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;//contador conta de 0 at√© 999, de forma crescente
+	TimerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;//N√£o queremos nenhum divisor de clock, o calculo √© com os 72Mhz.
 	TimerInitStructure.TIM_RepetitionCounter = 0;//Zerando tudo.
 	TIM_TimeBaseInit(TIM2, &TimerInitStructure);
 	TIM_Cmd(TIM2, ENABLE);//Ligando o timer
-	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);//Habilitando a atualizaÁao do bit de interrupÁao para o overflow.
+	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);//Habilitando a atualiza√ßao do bit de interrup√ßao para o overflow.
 
 	 lcd_init(); //iniciacao do LCD
 	 KeypadInit(); //Opcao de utilizacao de um teclado matricial 4x3
@@ -89,7 +89,7 @@ int main()
 				 lcd_print("TOTAL:"); //printa na linha 1
 				 lcd_line2(); //habilita linha 2
 				 lcd_print(result); // printa na linha 2 o contador de opaco
-				 delay_ms(1000); // dalay de 50 ms
+				 delay_ms(1000); // dalay de 1000 ms
 
 				  if (GPIO_ReadInputDataBit(PORTABOTAO,SENSOR) == 1) //se o sensor encontra elemento nao opaco
 				  {
@@ -105,8 +105,8 @@ int main()
 						  lcd_print("NAO OPACO:"); //printa na linha 1
 						  lcd_line2();
 						  lcd_print(result);
-						  delay_ms(1000);
-						  //Como realizamos o trabalho necess√°rio, evitamos que esta interrupcao siga sendo avaliada por demais partes do CMSIS.
+						  delay_ms(3000);
+						  //Como realizamos o trabalho necess√É¬°rio, evitamos que esta interrupcao siga sendo avaliada por demais partes do CMSIS.
 						  //Para isso precisamos limpar o BIT de interrupcao pendente de overflow.
 						  TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
 						}
